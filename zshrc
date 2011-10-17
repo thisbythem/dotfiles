@@ -73,12 +73,13 @@ _save_last_cwd() {
   echo `pwd` > ~/.last_cwd
 }
 chpwd_functions=( "${chpwd_functions[@]}" _save_last_cwd )
-      # Add the following to your ~/.bashrc or ~/.zshrc
-      hitch() {
-        command hitch "$@"
-        if [[ -s "$HOME/.hitch_export_authors" ]] ; then source "$HOME/.hitch_export_authors" ; fi
-      }
-      alias unhitch='hitch -u'
-      # Uncomment to persist pair info between terminal instances
-      # hitch
+
+# Add the following to your ~/.bashrc or ~/.zshrc
+hitch() {
+  command hitch "$@"
+  if [[ -s "$HOME/.hitch_export_authors" ]] ; then source "$HOME/.hitch_export_authors" ; fi
+}
+alias unhitch='hitch -u'
+# Uncomment to persist pair info between terminal instances
+hitch
 
