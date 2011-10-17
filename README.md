@@ -4,4 +4,4 @@
 
 Clone this repository, change into the cloned directory and run:
 
-    ./install.sh
+    rake install
