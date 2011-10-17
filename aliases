@@ -1,0 +1,67 @@
+# Shell
+
+alias ln='ln -v'
+alias mkdir='mkdir -p'
+alias ...='../..'
+alias l='ls'
+alias ll='ls -al'
+alias lh='ls -Alh'
+alias tlf="tail -f"
+
+alias -g G='| grep'
+alias -g M='| less'
+alias -g L='| wc -l'
+alias -g ONE="| awk '{ print \$1}'"
+
+# GIT
+
+function git(){hub "$@"}
+alias g="git"
+alias gci="git pull --rebase && rake && git push"
+alias gst='git status'
+alias gl='git pull'
+alias gp='git push'
+alias gd='git diff | mate -'
+alias gc='git commit -v'
+alias gca='git commit -v -a'
+alias gb='git branch'
+alias gba='git branch -a'
+alias grm='git ls-files -d -z | xargs -0 git update-index --remove'
+
+# Ruby
+
+alias s="bundle exec rspec"
+alias gi="gem install"
+alias giv="gem install -v"
+alias b="bundle"
+alias bi="b install --path .bundle --binstubs"
+alias bil="bi --local"
+alias bu="b update"
+alias be="b exec"
+alias binit="bi && b package && echo 'vendor/bundle' >> .gitignore"
+alias atf="autotest -cf"
+alias atp="autotest -cfp"
+alias rsp="be rake parallel:spec"
+
+# Rails
+
+alias rst='rails server thin'
+alias migrate="bundle exec rake db:migrate db:test:prepare"
+alias migratep="bundle exec rake db:migrate parallel:prepare"
+alias remigrate="rake db:migrate && rake db:migrate:redo && rake db:schema:dump db:test:prepare"
+alias remongrate="rake mongoid:migrate && rake mongoid:migrate:redo"
+alias ship='git fetch && git rebase origin/master && git checkout master && git merge @{-1} && rake && git push'
+
+# Databases
+
+alias pg_start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias pg_stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+
+# Editing
+
+alias ealiases='mvim -f "$HOME/.aliases"; source "$HOME/.aliases";'
+alias elogin='mvim -f "$HOME/.zlogin"; source "$HOME/.zlogin";'
+alias ezsh='mvim -f "$HOME/.zshrc"; source "$HOME/.zshrc";'
+alias egit='mvim "$HOME/.gitconfig"'
+alias ehosts='sudo mvim /etc/hosts'
+alias evhosts='sudo mvim -f /etc/apache2/extra/httpd-vhosts.conf; sudo apachectl restart;'
