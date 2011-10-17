@@ -1,3 +1,6 @@
+[user]
+  name = <%= print("Your Name: "); STDOUT.flush; STDIN.gets.chomp %>
+  email = <%= print("Your Email: "); STDOUT.flush; STDIN.gets.chomp %>
 [alias]
   st = status
   a = add
@@ -46,9 +49,12 @@
   ui = auto
 [core]
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-  excludesfile = ~/.gitignore
-  editor = mate -w
+  excludesfile = <%= ENV['HOME'] %>/.gitignore
+  editor = mvim -f
   quotepath = false
+[github]
+  user = <%= print("GitHub Username: "); STDOUT.flush; STDIN.gets.chomp %>
+  token = <%= print("GitHub API Token: "); STDOUT.flush; STDIN.gets.chomp %>
 [branch]
   autosetuprebase = always
 [merge]
