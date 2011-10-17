@@ -1,0 +1,4 @@
+command! StripWhitespace %s/\s\+$//
+set gfn=Menlo:h13
+
+color molokai
