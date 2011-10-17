@@ -1,0 +1,57 @@
+[alias]
+  st = status
+  a = add
+  aa= !git add -u && git add . && git status
+  c = commit -m
+  br = branch
+  bra = branch -a
+  co = checkout
+  aa= !git add -u && git add . && git status
+  cob = checkout -b
+  df = diff
+  lp = log -p
+  unstage = reset HEAD
+  diffall = diff HEAD
+  undolast = reset --soft HEAD^
+  diffstaged = diff --staged
+  qpl = log --pretty=\"%Cblue%h%Creset %Cgreen[%cr]%Creset %s\" origin/production..origin/master
+  graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  filelog = log --oneline --no-merges --
+  datetag = !git tag `date "+%Y_%m_%d_%H%M"`
+  pr = remote prune origin
+  up = !git fetch origin && git rebase origin/master
+  rc = rebase --continue
+  ir = rebase -i
+  next = rebase --continue
+  abort = rebase --abort
+  rmb = !sh -c 'git branch -D $1 && git push origin :$1' -
+  cleanup = !git remote prune origin && git gc && git clean -df && git stash clear
+  done = !git fetch && git rebase origin/master && git checkout master && git merge @{-1} && ./bin/rake && git push
+  mm = merge --no-ff --no-commit
+  # Gets the name of the current branch you're on
+  branch-name = !git for-each-ref --format='%(refname:short)' `git symbolic-ref HEAD`
+  # Shortcut to explicitly set current branch upstream
+  set-up = !sh -c 'git branch --set-upstream `git branch-name` origin/$1' -
+  # Set the remote branch to track
+  hookup = !git set-up `git branch-name`
+  # Push the branch then track track it
+  publish = !git push && git hookup
+  # create a pullrequest at github
+  pullreq = !sh -c 'curl -d "pull[base]=master" -d "pull[head]=thisbythem:`git branch-name`" -d "pull[issue]=$2" -u "`git config github.user`" https://github.com/api/v2/json/pulls/$1' -
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = auto
+[core]
+  whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  excludesfile = ~/.gitignore
+  editor = mvim -f
+  quotepath = false
+[branch]
+  autosetuprebase = always
+[merge]
+  tool = opendiff
+[push]
+  default = current
