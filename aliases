@@ -65,3 +65,9 @@ alias ezsh='mvim -f "$HOME/.zshrc"; source "$HOME/.zshrc";'
 alias egit='mvim "$HOME/.gitconfig"'
 alias ehosts='sudo mvim /etc/hosts'
 alias evhosts='sudo mvim -f /etc/apache2/extra/httpd-vhosts.conf; sudo apachectl restart;'
+
+# TMUX
+
+alias tmux-start="tmux new -s pairing"
+alias tmux-attach="tmux attach -t pairing"
+alias tmux-stop="tmux kill-server"

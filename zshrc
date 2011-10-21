@@ -11,6 +11,7 @@ cdpath=($HOME/Code /Volumes/Master/Code)
 
 # use vim as an editor
 export EDITOR=vim
+export TERM=xterm-256color
 
 # aliases
 if [ -e "$HOME/.aliases" ]; then
@@ -73,6 +74,7 @@ _save_last_cwd() {
   echo `pwd` > ~/.last_cwd
 }
 chpwd_functions=( "${chpwd_functions[@]}" _save_last_cwd )
+
 
 
 
