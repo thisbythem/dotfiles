@@ -59,12 +59,12 @@ alias pg_stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 
 # Editing
 
-alias ealiases='mvim -f "$HOME/.aliases"; source "$HOME/.aliases";'
-alias elogin='mvim -f "$HOME/.zlogin"; source "$HOME/.zlogin";'
-alias ezsh='mvim -f "$HOME/.zshrc"; source "$HOME/.zshrc";'
-alias egit='mvim "$HOME/.gitconfig"'
-alias ehosts='sudo mvim /etc/hosts'
-alias evhosts='sudo mvim -f /etc/apache2/extra/httpd-vhosts.conf; sudo apachectl restart;'
+alias ealiases='vim -f "$HOME/.aliases"; source "$HOME/.aliases";'
+alias elogin='vim -f "$HOME/.zlogin"; source "$HOME/.zlogin";'
+alias ezsh='vim -f "$HOME/.zshrc"; source "$HOME/.zshrc";'
+alias egit='vim "$HOME/.gitconfig"'
+alias ehosts='sudo vim /etc/hosts'
+alias evhosts='sudo vim -f /etc/apache2/extra/httpd-vhosts.conf; sudo apachectl restart;'
 
 # TMUX
 
