@@ -3,4 +3,5 @@ set gfn=Menlo:h13
 
 color solarized
 set background=dark
+set autoread
 autocmd BufWritePre * :%s/\s\+$//e
