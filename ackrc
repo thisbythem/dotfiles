@@ -1,0 +1,4 @@
+--type-add=css=.less,.styl,.scss,.sass
+--type-add=js=.coffee
+--type-set=mustache=.mustache
+--nosql
