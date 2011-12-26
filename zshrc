@@ -75,6 +75,8 @@ _save_last_cwd() {
 }
 chpwd_functions=( "${chpwd_functions[@]}" _save_last_cwd )
 
+# tmuxinator
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 
 
